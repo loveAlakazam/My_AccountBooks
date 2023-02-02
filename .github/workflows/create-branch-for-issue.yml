@@ -1,13 +1,11 @@
 name: Create Branch For Issue
 on:
   issues:
-    types: [opened, reopened, assigned]
+    types: [opened, reopened, assigned, edited]
   pull_request:
     types: [closed]
 
-env:
-  user: loveAlakazam
-  project_id: 2
+
 
 jobs:
   create_issue_branch_job:
@@ -19,17 +17,3 @@ jobs:
         uses: robvanderleek/create-issue-branch@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  move_issue_todo_job:
-    name: move_issue_todo
-    runs-on: ubuntu-latest
-    steps:
-      # issue status
-      - name: Moving assigned issues on project boards
-        uses: leonsteinhaeuser/project-beta-automations@v2.0.1
-        with:
-          gh_token: ${{ secrets.GH_TOKEN }}
-          user: ${{ env.user }}
-          project_id: ${{ env.project_id }}
-          resource_node_id: ${{ github.event.issue.node_id }}
-          status_value: Todo
