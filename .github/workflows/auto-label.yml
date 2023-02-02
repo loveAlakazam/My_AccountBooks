@@ -1,0 +1,12 @@
+name: Auto Label
+on:
+  issues:
+    types: ['opened', 'edited']
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Renato66/auto-label@v2 # or v2.1.5
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          labels-not-allowed: '["dependencies","documentation","duplicate","enhancement","good first issue","help wanted","wontfix","question","invalid"]'
