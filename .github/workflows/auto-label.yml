@@ -6,7 +6,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: Renato66/auto-label@v2 # or v2.1.5
+      - uses: Renato66/auto-label@master
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+          label-synonyms: '{"bugfix":["error", "need fix", "not working", "bug", "버그"], "hotfix":["hotfix", "핫픽스"]}'
           labels-not-allowed: '["dependencies","documentation","duplicate","enhancement","good first issue","help wanted","wontfix","question","invalid"]'
+          default-labels: '["feature"]'
