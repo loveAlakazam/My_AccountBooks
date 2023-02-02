@@ -2,8 +2,6 @@ name: Create Branch For Issue
 on:
   issues:
     types: [assigned]
-  issue_comment:
-    types: [created]
   pull_request:
     types: [closed]
 
@@ -22,5 +20,4 @@ jobs:
         with:
           project: My_AccountBooks
           column: Todo
-          # 래포지토리 actions secret에 PERSONAL_TOKEN에 대한 시크릿값을 GITHUB_TOKEN 의 시크릿값으로 매핑
           repo-token: ${{ secrets.GITHUB_TOKEN }}
