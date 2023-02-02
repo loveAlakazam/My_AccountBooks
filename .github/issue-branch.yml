@@ -3,12 +3,12 @@ defaultBranch: develop
 branches:
   - label: bugfix
     prefix: bugfix/
-  - label: hotfix
-    name: master
-    prefix: hotfix/
   - label: document
     prefix: docs/
   - label: feature
     prefix: feature/
+  - label: hotfix
+    name: master
+    prefix: hotfix/
 autoCloseIssue: true
 commentMessage: 'Branch ${branchName} created for issue: ${issue.title}'
