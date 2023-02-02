@@ -4,8 +4,13 @@ on:
     types: [opened, reopened, assigned]
   pull_request:
     types: [closed]
+
 permissions:
   issues: write
+
+env:
+  user: loveAlakazam
+  project_id: 2
 
 jobs:
   assign_author_job:
