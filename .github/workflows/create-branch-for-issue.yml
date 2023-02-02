@@ -1,11 +1,32 @@
 name: Create Branch For Issue
 on:
   issues:
-    types: [assigned]
+    types: [opened, reopened, assigned]
   pull_request:
     types: [closed]
+permissions:
+  issues: write
 
 jobs:
+  assign_author_job:
+    name: assign_author
+    runs-on: ubuntu-latest
+    steps:
+      # 이슈생성시 이슈작성자를 담당자로 설정한다.
+      - uses: toshimaru/auto-author-assign@v1.6.1
+  move_issue_todo_job:
+    name: move_issue_todo
+    runs-on: ubuntu-latest
+    steps:
+      # 해당이슈를 프로젝트의 todo 단계로 옮김
+      - name: Moving assigned issues on project boards
+        uses: leonsteinhaeuser/project-beta-automations@v2.0.1
+        with:
+          gh_token: ${{ secrets.GH_TOKEN }}
+          user: ${{ env.user }}
+          project_id: ${{ env.project_id }}
+          resource_node_id: ${{ github.event.issue.node_id }}
+          status_value: Todo
   create_issue_branch_job:
     name: create_issue_branch
     runs-on: ubuntu-latest
