@@ -19,6 +19,16 @@ jobs:
     steps:
       # 이슈생성시 이슈작성자를 담당자로 설정한다.
       - uses: toshimaru/auto-author-assign@v1.6.1
+
+  create_issue_branch_job:
+    name: create_issue_branch
+    runs-on: ubuntu-latest
+    steps:
+      # 브랜치 생성
+      - name: Create Issue Branch
+        uses: robvanderleek/create-issue-branch@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   move_issue_todo_job:
     name: move_issue_todo
     runs-on: ubuntu-latest
@@ -32,12 +42,3 @@ jobs:
           project_id: ${{ env.project_id }}
           resource_node_id: ${{ github.event.issue.node_id }}
           status_value: Todo
-  create_issue_branch_job:
-    name: create_issue_branch
-    runs-on: ubuntu-latest
-    steps:
-      # 브랜치 생성
-      - name: Create Issue Branch
-        uses: robvanderleek/create-issue-branch@main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
