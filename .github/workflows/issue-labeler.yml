@@ -1,0 +1,13 @@
+name: Issue Labeler
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  auto_issue_label_job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Renato66/auto-label@v2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          ignore-comments: true
