@@ -20,6 +20,6 @@ jobs:
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
           user: loveAlakazam
-          project_id: 1
+          project_id: 2
           resource_node_id: ${{ github.event.issue.node_id }}
           status_value: Todo
