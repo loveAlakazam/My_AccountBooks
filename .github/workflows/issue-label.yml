@@ -1,7 +1,7 @@
 name: Issue Label
 on:
   issues:
-    types: [opened, edited]
+    types: [assigned, opened, edited]
 
 jobs:
   triage:
