@@ -1,7 +1,7 @@
 name: Create Branch For Issue
 on:
   issues:
-    types: [assigned]
+    types: [opened, reopened, assigned]
   pull_request:
     types: [closed]
 
@@ -16,8 +16,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # issue status
       - name: Moving assigned issues on project boards
-        uses: alex-page/github-project-automation-plus@v0.8.1
+        uses: alex-page/github-project-automation-plus@v0.8.3
         with:
           project: My_AccountBooks
           column: Todo
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token: ${{ secrets.GHPROJECT_TOKEN }}
