@@ -11,6 +11,6 @@ jobs:
         with:
           repo-token: '${{ secrets.GITHUB_TOKEN }}'
           configuration-path: .github/labeler.yml
-          enable-versioned-regex: 1
+          enable-versioned-regex: 0
           versioned-regex: 'issue_labeler_regex_version=(\d+)'
           body-missing-regex-label: 'feature'
