@@ -16,8 +16,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # issue status
       - name: Moving assigned issues on project boards
-        uses: alex-page/github-project-automation-plus@v0.8.3
+        uses: leonsteinhaeuser/project-beta-automations@v2.0.1
         with:
-          project: my-account-books
-          column: To do
-          repo-token: ${{ secrets.GH_TOKEN }}
+          gh_token: ${{ secrets.GH_TOKEN }}
+          user: loveAlakazam
+          project_id: 1
+          resource_node_id: ${{ github.event.issue.node_id }}
+          status_value: Todo
