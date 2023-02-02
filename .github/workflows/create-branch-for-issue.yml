@@ -20,4 +20,4 @@ jobs:
         with:
           project: my-account-books
           column: To do
-          repo-token: ${{ secrets.GH_TOKEN }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
