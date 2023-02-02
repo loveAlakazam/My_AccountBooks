@@ -1,4 +1,4 @@
-branchName: "issue-${issue.number}"
+branchName: 'issue-${issue.number}'
 defaultBranch: develop
 branches:
   - label: bugfix
@@ -8,7 +8,7 @@ branches:
     prefix: hotfix/
   - label: document
     prefix: docs/
-  - label: "*"
+  - label: feature
     prefix: feature/
 autoCloseIssue: true
 commentMessage: 'Branch ${branchName} created for issue: ${issue.title}'
