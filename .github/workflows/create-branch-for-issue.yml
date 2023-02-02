@@ -20,4 +20,4 @@ jobs:
         with:
           project: My_AccountBooks
           column: Todo
-          repo-token: ${{ secrets.GHPROJECT_TOKEN }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
