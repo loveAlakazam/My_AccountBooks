@@ -1,0 +1,16 @@
+name: Issue Label
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: github/issue-labeler@v2.6
+        # 라벨이 존재하지 않을경우
+        if: join(github.event.issue.labels) == ''
+        with:
+          repo-token: '${{ secrets.GITHUB_TOKEN }}'
+          configuration-path: .github/issue-labeler.yml
+          enable-versioned-regex: 0
