@@ -6,6 +6,7 @@ import { ConfigModule } from '@nestjs/config';
 import * as Joi from 'joi';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MysqlService } from './mysql/mysql.service';
+import { AccountsModule } from './accounts/accounts.module';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { MysqlService } from './mysql/mysql.service';
       imports: [MysqlModule],
       useClass: MysqlService,
     }),
+    AccountsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
